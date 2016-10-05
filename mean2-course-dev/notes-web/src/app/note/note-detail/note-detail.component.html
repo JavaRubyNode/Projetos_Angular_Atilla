@@ -1,0 +1,14 @@
+<div class="panel panel-default">
+  <div class="panel-heading">
+    <span>{{note.titulo}}</span>
+  </div>
+
+  <div class="panel-body">
+    <span>{{note.descricao}}</span>
+  </div>
+
+  <div class="panel-footer clearfix">
+    <button class="btn btn-danger pull-right" (click)="excluir()">Excluir</button>
+    <button class="btn btn-default pull-right" [routerLink]="[note._id]">Editar</button>
+  </div>
+</div>

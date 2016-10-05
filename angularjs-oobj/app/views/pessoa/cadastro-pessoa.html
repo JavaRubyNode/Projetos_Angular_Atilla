@@ -1,0 +1,10 @@
+<div ng-controller="CadastroPessoaController">
+    <oobj-crud titulo="Cadastro de Pessoas" acao-salvar="salvar()" acao-excluir="excluir()" acao-limpar="limpar()">
+        <div class="row">
+            <oobj-text-input label="Nome" ng-model="pessoa.nome" colspan="3"></oobj-text-input>
+            <oobj-text-input label="Sobrenome" ng-model="pessoa.sobrenome" colspan="3"></oobj-text-input>
+            <oobj-calendar label="Data Nasc." ng-model="pessoa.dataNascimento" colspan="3"></oobj-calendar>
+            <oobj-select label="Cidade" ng-model="pessoa.cidade" colspan="3" itens="cidades" item-label="nome"
+        </div>
+    </oobj-crud>
+</div>

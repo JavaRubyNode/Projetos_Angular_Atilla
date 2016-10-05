@@ -1,0 +1,38 @@
+<div ng-controller="TodoCadastroCtrl" class="container-fluid">
+    <div class="col-md-12 panel panel-default">
+        <div class="panel-heading">
+            <b>Cadastro de TODO</b>
+        </div>
+        
+        <div class="panel-body">
+            <div class="alert {{alert.type}} fade in" ng-show="alert.message">
+                <a href="" class="close" data-dismiss="alert" aria-label="close">&times;</a>
+                <strong ng-bind="alert.title"></strong> {{alert.message}}
+            </div>
+            
+            <form role="form" ng-submit="salvar()">
+                <div class="form-group">
+                    <label for="usuario">Usuário:</label>
+                    <input ng-model="todo.usuario" type="text" class="form-control" id="usuario" required>
+                </div>
+                
+                <div class="form-group">
+                    <label for="todo">TODO:</label>
+                    <input ng-model="todo.todo" type="text" class="form-control" id="todo" required>
+                </div>
+                
+                <div class="checkbox">
+                    <label>
+                    <input ng-model="todo.finalizado" type="checkbox"> Finalizado</label>
+                </div>
+                
+                <button type="submit" class="btn btn-primary" ladda="loadingSave" 
+                        data-style="expand-right">Salvar</button> <!-- veja ng-submit do form -->
+                <button ng-click="excluir()" type="button" ladda="loadingDelete" data-style="expand-right"
+                        class="btn btn-danger" ng-if="todo._id">Excluir</button>
+                <a href="#/todos/{{todo.usuario || ''}}" class="btn btn-success">Pesquisar</a>
+                <button ng-click="limpar()" type="button" class="btn btn-default">Limpar</button>
+            </form>
+        </div>
+    </div>
+</div>

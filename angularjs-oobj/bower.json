@@ -1,0 +1,46 @@
+{
+  "name": "helloworld",
+  "version": "0.0.0",
+  "authors": [
+    "ATILLA <atilla8huno@gmail.com>"
+  ],
+  "license": "MIT",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "angular": "~1.4.4",
+    "bootstrap": "~3.3.5",
+    "font-awesome": "~4.4.0",
+    "angular-messages": "~1.4.4",
+    "angular-ui-growl": "~0.0.1",
+    "angular-ui-grid": "~3.0.4",
+    "angular-material": "~0.10.1",
+    "ui-router": "~0.2.15",
+    "oclazyload": "~1.0.4",
+    "angular-ui-calendar": "~1.0.1"
+  },
+  "resolutions": {
+    "jquery": "2.1.4",
+    "angular": "~1.4.4",
+    "angular-messages": "~1.4.4",
+    "bootstrap": "~3.3.5"
+  },
+  "overrides": {
+    "font-awesome": {
+      "main": [
+        "css/font-awesome.css"
+      ]
+    },
+    "angular-ui-growl": {
+      "main": [
+        "css/growl.css",
+        "css/growl.js"
+      ]
+    }
+  }
+}

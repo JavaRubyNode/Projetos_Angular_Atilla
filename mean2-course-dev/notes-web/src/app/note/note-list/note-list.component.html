@@ -1,0 +1,11 @@
+<div class="container">
+  <h2>
+    My Notes
+    <a class="btn btn-success pull-right" [routerLink]="['new']">Novo</a>
+  </h2>
+
+  <app-note-detail [note]="note"
+                   *ngFor="let note of notes"
+                   (remove)="onRemove($event)">
+  </app-note-detail>
+</div>

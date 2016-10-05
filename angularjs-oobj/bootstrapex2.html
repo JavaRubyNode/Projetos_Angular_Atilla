@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <link rel="stylesheet" href="bower_components/angular/angular-csp.css"/>
+    <link rel="stylesheet" href="bower_components/bootstrap/dist/css/bootstrap.css"/>
+    <link rel="stylesheet" href="bower_components/bootstrap/dist/css/bootstrap-theme.css"/>
+    <link rel="stylesheet" href="bower_components/font-awesome/css/font-awesome.css"/>
+    <link rel="stylesheet" href="bower_components/angular-ui-growl/css/growl.css"/>
+    <link rel="stylesheet" href="bower_components/angular-ui-grid/ui-grid.css"/>
+    <link rel="stylesheet" href="bower_components/angular-material/angular-material.css"/>
+    <link rel="stylesheet" href="app/css/layout.css"/>
+
+    <script src="bower_components/jquery/dist/jquery.js"></script>
+    <script src="bower_components/bootstrap/dist/js/bootstrap.js"></script>
+    <script src="bower_components/angular/angular.js"></script>
+    <script src="bower_components/angular-messages/angular-messages.js"></script>
+    <script src="bower_components/angular-ui-grid/ui-grid.js"></script>
+    <script src="bower_components/angular-ui-growl/src/growl.js"></script>
+    <script src="bower_components/angular-material/angular-material.js"></script>
+    <script src="bower_components/angular-animate/angular-animate.js"></script>
+    <script src="bower_components/angular-aria/angular-aria.js"></script>
+    <script src="app/js/app-config-bootstrap.js"></script>
+    <script src="app/js/bootstrap-ctrl.js"></script>
+
+</head>
+
+<body ng-app="bootstrapApp">
+
+    <div class="container" ng-controller="BootstrapCtrl">
+        <form novalidate name="myForm" ng-submit="salvar()">
+            <div class="row">
+                <div class="form-group col-sm-3" ng-class="{ 'has-error': myForm.itNome.$invalid }">
+                    <label for="itNome">Nome</label>
+                    <input type="text"
+                           class="form-control"
+                           id="itNome"
+                           name="itNome"
+                           ng-model="pessoa.nome"
+                           maxlength="20"
+                           minlength="5"
+                           required>
+                    <div ng-messages="myForm.itNome.$error"
+                         class="help-block"
+                         ng-if="!myForm.$pristine">
+                        <div ng-messages-include="messages.html"></div>
+                    </div>
+                </div>
+
+                <div class="form-group col-sm-3" ng-class="{ 'has-error': myForm.itSobrenome.$invalid }">
+                    <label for="itSobrenome">Sobrenome</label>
+                    <input type="text"
+                           class="form-control"
+                           id="itSobrenome"
+                           name="itSobrenome"
+                           ng-model="pessoa.sobrenome">
+                    <div ng-messages="myForm.itSobrenome.$error" class="help-block" ng-if="!myForm.$pristine">
+                        <div ng-messages-include="messages.html"></div>
+                    </div>
+                </div>
+
+                <div class="form-group col-sm-3" ng-class="{ 'has-error': myForm.idDataNascimento.$invalid }">
+                    <label for="idDataNascimento">Data de Nascimento</label>
+                    <input type="date"
+                           class="form-control"
+                           id="idDataNascimento"
+                           name="idDataNascimento"
+                           ng-model="pessoa.dataNascimento">
+                    <div ng-messages="myForm.idDataNascimento.$error" class="help-block" ng-if="!myForm.$pristine">
+                        <div ng-messages-include="messages.html"></div>
+                    </div>
+                </div>
+
+                <div class="form-group col-sm-3" ng-class="{ 'has-error': (myForm.sSexo.$invalid && !myForm.$pristine)}">
+                    <label for="sSexo">Sexo</label>
+                    <select class="form-control"
+                            id="sSexo"
+                            name="sSexo"
+                            ng-model="pessoa.sexo">
+                        <option value="M">Macho</option>
+                        <option value="F">Fêmea</option>
+                    </select>
+                    <div ng-messages="myForm.sSexo.$error" class="help-block" ng-if="!myForm.$pristine">
+                        <div ng-messages-include="messages.html"></div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="form-group col-sm-3" ng-class="{ 'has-error': myForm.itCor.$invalid }">
+                    <label for="itCor">Cor</label>
+                    <input type="text"
+                           class="form-control"
+                           id="itCor"
+                           name="itCor"
+                           ng-model="pessoa.cor">
+                    <div ng-messages="myForm.itCor.$error"
+                         class="help-block"
+                         ng-if="!myForm.$pristine">
+                        <div ng-messages-include="messages.html"></div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="row">
+                <md-input-container class="form-group col-sm-3">
+                    <label>Nome</label>
+                    <input ng-model="pessoa.nome" required>
+                </md-input-container>
+
+                <md-input-container class="form-group col-sm-3" >
+                    <label>Sobrenome</label>
+                    <input ng-model="pessoa.sobrenome" required>
+                </md-input-container>
+
+                <md-input-container class="form-group col-sm-3" >
+                    <label>Data de Nascimento</label>
+                    <input type="date" ng-model="pessoa.dataNascimento">
+                </md-input-container>
+
+                <md-input-container class="form-group col-sm-3" >
+                    <label>Sexo</label>
+                    <md-select ng-model="pessoa.sexo">
+                        <md-option value="M">Macho</md-option>
+                        <md-option value="F">Fêmea</md-option>
+                    </md-select>
+                </md-input-container>
+            </div>
+
+            <div ui-grid="gridOptions"
+                 ui-grid-resize-columns
+                 ui-grid-selection>
+            </div>
+
+            <nav class="navbar navbar-default" style="padding-left: 10px;">
+                <button type="submit" class="btn btn-primary navbar-btn">
+                    <i class="fa fa-save"></i>
+                    Salvar
+                </button>
+                <button class="btn btn-warning navbar-btn" ng-click="limpar()">
+                    <i class="fa fa-eraser"></i>
+                    Limpar
+                </button>
+                <button class="btn btn-danger" ng-click="excluir()">
+                    <i class="fa fa-trash"></i>
+                    Excluir
+                </button>
+            </nav>
+        </form>
+    </div>
+</body>
+</html>

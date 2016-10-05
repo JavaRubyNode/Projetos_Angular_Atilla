@@ -1,0 +1,1 @@
+angular.module('oobj-directives', ['ngMaterial']);

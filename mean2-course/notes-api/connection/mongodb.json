@@ -1,0 +1,8 @@
+{
+  "serverName": "mongodb",
+  "username": "mean2",
+  "password": "mean2",
+  "dns": "ds047666.mlab.com",
+  "port": "47666",
+  "database": "meancourse"
+}
